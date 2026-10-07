@@ -8,10 +8,17 @@ WIDTH, HEIGHT = COLS * TILE, ROWS * TILE + 36
 DIRS = {pygame.K_UP: (-1, 0), pygame.K_DOWN: (1, 0), pygame.K_LEFT: (0, -1), pygame.K_RIGHT: (0, 1)}
 MOVE_DELAY, ENEMY_DELAY, PUMP_RANGE, DEFLATE_AFTER = 0.11, 0.35, 3, 1.5
 
-
 def dirt_color(row):
     """Return an (r, g, b) colour for dirt in the given row, or None for the default gradient."""
-    pass
+    if 1 <= row <= 4:
+        return (185, 125, 70)
+    elif 5 <= row <= 8:
+        return (160, 100, 60)
+    elif 9 <= row <= 12:
+        return (135, 80, 55)
+    elif row >= 13:
+        return (110, 65, 50)
+    return None
 
 
 def on_enemy_popped(enemy, score):
